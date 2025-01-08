@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sprint-six-deployment
+  labels:
+    app: sprint-six
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sprint-six
+  template:
+    metadata:
+      labels:
+        app: sprint-six
+    spec:
+      containers:
+      - name: sprint-six
+        image: shestera/scaletestapp:latest
+        resources:
+          limits:
+            memory: "30Mi"
+        #ports:
+        #- containerPort: 80
